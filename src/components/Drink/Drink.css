@@ -11,7 +11,19 @@ img {
 
 div.drinkCard {
   border: 1px solid black;
-  margin: 3px;
+  margin: auto;
   padding: 10px;
   overflow: hidden;
+  height: 100px;
+  width: 50%;
+  border-radius: 10px;
+  background-color: #ffeeee;
+}
+
+div.drinkCard h1 {
+  transition: 0.35s;
+}
+
+div.drinkCard:hover h1 {
+  color: #ed820e;
 }

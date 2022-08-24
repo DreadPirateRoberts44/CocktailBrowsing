@@ -1,5 +1,6 @@
 import "./App.css";
 import Drink from "./components/Drink/Drink";
+import Header from "./components/Header/Header";
 import React, { useState, useEffect } from "react";
 
 function App() {
@@ -35,15 +36,18 @@ function App() {
   };
 
   useEffect(() => {
-    getDrinksByIngredient("7-Up");
+    getDrinksByIngredient("Whiskey");
   }, []);
 
   return (
-    <div className="App">
-      {drinks.map((drink, index) => {
-        return Drink(drink);
-      })}
-    </div>
+    <>
+      <Header getDrinksByIngredient={getDrinksByIngredient}></Header>
+      <div className="App">
+        {drinks.map((drink, index) => {
+          return Drink(drink);
+        })}
+      </div>
+    </>
   );
 }
 

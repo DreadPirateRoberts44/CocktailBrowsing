@@ -20,11 +20,10 @@ function Drink(props) {
   ];
 
   return (
-    <span>
-      <div className={"drinkCard "}>
-        <img src={props.strDrinkThumb} alt={props.strDrink}></img>
-      </div>
-    </span>
+    <div className={"drinkCard "}>
+      <img src={props.strDrinkThumb} alt={props.strDrink}></img>
+      <h1 data-text={props.strDrink}>{props.strDrink}</h1>
+    </div>
   );
 }
 

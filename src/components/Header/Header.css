@@ -1,0 +1,11 @@
+div.header {
+  background-color: white;
+  height: 75px;
+}
+
+div.input-container {
+  width: 75%;
+  margin: auto;
+  padding: 10px;
+  border: 2px solid black;
+}
