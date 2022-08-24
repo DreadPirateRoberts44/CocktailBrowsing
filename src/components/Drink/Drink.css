@@ -15,3 +15,13 @@ div.drinkCard {
   padding: 10px;
   overflow: hidden;
 }
+
+ol.ingList {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+li.ing {
+    margin: 1em;
+}
