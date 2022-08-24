@@ -1,7 +1,6 @@
 import "./App.css";
-import Drink from "./components/Drink";
+import Drink from "./components/Drink/Drink";
 import React, { useState, useEffect } from "react";
-import { queryByTitle } from "@testing-library/react";
 
 function App() {
   const [drinks, setDrinks] = useState([]);
@@ -18,14 +17,18 @@ function App() {
     const data = await res.json();
 
     function createDrink(result) {
+      var newDrinks = [];
       result.forEach(async (drink) => {
         const res = await fetch(
           `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drink.idDrink}`
         );
         const data = await res.json();
+        newDrinks.push(data.drinks[0]);
 
         setDrinks((drinks) => [...drinks, data.drinks[0]]);
       });
+
+      //setDrinks(newDrinks);
     }
     shuffle(data.drinks);
     createDrink(data.drinks);
@@ -37,7 +40,6 @@ function App() {
 
   return (
     <div className="App">
-      {console.log(drinks)}
       {drinks.map((drink, index) => {
         return Drink(drink);
       })}

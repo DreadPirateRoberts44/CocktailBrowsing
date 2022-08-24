@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import "./Drink.css";
 function Drink(props) {
   const ingredients = [
     props.strIngredient1,
@@ -20,9 +20,11 @@ function Drink(props) {
   ];
 
   return (
-    <div className={"drinkCard "}>
-      <img src={props.strDrinkThumb} alt={props.strDrink}></img>
-    </div>
+    <span>
+      <div className={"drinkCard "}>
+        <img src={props.strDrinkThumb} alt={props.strDrink}></img>
+      </div>
+    </span>
   );
 }
 
