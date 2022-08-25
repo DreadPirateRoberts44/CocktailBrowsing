@@ -14,8 +14,8 @@ function Header(props) {
   return (
     <div className="header">
       <div className="input-container">
-        <span className="liqour">
-          <label>Liqour: </label>
+        <span className="liquor">
+          <label>Liquor: </label>
           <select name="Liquor" onChange={handleSelectChange}>
             <option value="none"></option>
             <option value="Whiskey">Whiskey</option>
