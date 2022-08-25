@@ -29,18 +29,27 @@ function Drink(props) {
         ></Button>
       </div>
       <div className={"drinkCard"}>
-        <ol className="ingList">
-          {ingredients.map((p) => (
-            <li className="ing">
-              {p.m} {p.i}
-            </li>
-          ))}
-        </ol>
-        <Button
-          handleClick={handleClick}
-          prompt={"Flip Back"}
-          className={"back"}
-        ></Button>
+        <div className="recipe-card">
+          <h4>Ingredients</h4>
+          <hr></hr>
+          <ul className="ingList">
+            {ingredients.map((p) => (
+              <>
+                <li className="ing">
+                  {p.m} {p.i}
+                </li>
+                <hr></hr>
+              </>
+            ))}
+          </ul>
+        </div>
+        <div className={"button-container"}>
+          <Button
+            handleClick={handleClick}
+            prompt={"Flip Back"}
+            cName={"back"}
+          ></Button>
+        </div>
       </div>
     </ReactCardFlip>
   );
