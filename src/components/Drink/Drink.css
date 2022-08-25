@@ -1,19 +1,47 @@
 img {
-  width: 100px;
-  height: 100px;
+    /* width: 100px; */
+    height: 100px;
 
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-  border-radius: 5px;
-  float: left;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+                rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+                rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    border-radius: 5px;
+    float: left;
 }
 
 div.drinkCard {
-  border: 1px solid black;
-  margin: 3px;
-  padding: 10px;
-  overflow: hidden;
+    display: grid;
+    grid-template-areas:
+        'thumb header header'
+        'thumb extra extra';
+    grid-template-columns: auto auto auto;
+
+    border: 1px solid black;
+    margin: auto;
+    padding: 10px;
+    overflow: hidden;
+    /* height: 100px; */
+    width: 50%;
+    border-radius: 10px;
+    background-color: #ffeeee;
+}
+
+div.drinkCard img {
+    align-self: center;
+    grid-area: thumb;
+}
+
+div.drinkCard h1 {
+    grid-area: header;
+    transition: 0.35s;
+}
+
+div.drinkCard:hover h1 {
+    color: #ed820e;
+}
+
+div.drinkCard ol {
+    grid-area: extra;
 }
 
 ol.ingList {

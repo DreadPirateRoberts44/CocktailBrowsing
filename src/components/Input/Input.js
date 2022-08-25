@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import "./Drink.css";
+// import React, { useState, useEffect } from "react";
+// import "./Input.css";
 
-function Drink(props) {
+function Input() {
   var ingredients = [];
 
   for (var i = 0; i < 16; i++) {
@@ -16,7 +16,6 @@ function Drink(props) {
     <span>
       <div className={"drinkCard "}>
         <img src={props.strDrinkThumb} alt={props.strDrink}></img>
-        <h1 data-text={props.strDrink}>{props.strDrink}</h1>
         <ol className="ingList">
           {ingredients.map((p) => <li className="ing">{p.m} of {p.i}</li>)}
         </ol>
