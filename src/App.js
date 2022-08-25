@@ -44,7 +44,7 @@ function App() {
       <Header getDrinksByIngredient={getDrinksByIngredient}></Header>
       <div className="App">
         {drinks.map((drink, index) => {
-          return Drink(drink);
+          return <Drink drink={drink}></Drink>;
         })}
       </div>
     </>

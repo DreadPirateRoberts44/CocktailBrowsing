@@ -1,27 +1,48 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import ReactCardFlip from "react-card-flip";
+import Button from "../Button/Button";
 import "./Drink.css";
 
 function Drink(props) {
+  const [flipped, setFlipped] = useState(false);
   var ingredients = [];
 
   for (var i = 0; i < 16; i++) {
-    const ing = props["strIngredient" + i];
-    const measure = props["strMeasure" + i];
+    const ing = props.drink["strIngredient" + i];
+    const measure = props.drink["strMeasure" + i];
 
     if (ing != null && measure != null)
-      ingredients.push({i: ing, m: measure});
+      ingredients.push({ i: ing, m: measure });
   }
-
+  const handleClick = () => {
+    setFlipped(!flipped);
+  };
   return (
-    <span>
+    <ReactCardFlip isFlipped={flipped} flipDirection="horizontal">
       <div className={"drinkCard "}>
-        <img src={props.strDrinkThumb} alt={props.strDrink}></img>
-        <h1 data-text={props.strDrink}>{props.strDrink}</h1>
-        <ol className="ingList">
-          {ingredients.map((p) => <li className="ing">{p.m} of {p.i}</li>)}
-        </ol>
+        <img src={props.drink.strDrinkThumb} alt={props.drink.strDrink}></img>
+        <h2 data-text={props.drink.strDrink}>{props.drink.strDrink}</h2>
+        <Button
+          handleClick={handleClick}
+          prompt={"See Ingredients"}
+          className={"front"}
+        ></Button>
       </div>
-    </span>
+      <div className={"drinkCard"}>
+        <ol className="ingList">
+          {ingredients.map((p) => (
+            <li className="ing">
+              {p.m} {p.i}
+            </li>
+          ))}
+        </ol>
+        <Button
+          handleClick={handleClick}
+          prompt={"Flip Back"}
+          className={"back"}
+        ></Button>
+      </div>
+    </ReactCardFlip>
   );
 }
 
