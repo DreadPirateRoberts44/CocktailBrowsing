@@ -1,11 +1,21 @@
 div.header {
-  background-color: white;
+  background: linear-gradient(#160b20, #663399);
   height: 75px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
 }
 
 div.input-container {
   width: 75%;
-  margin: auto;
+
+  transform: translate(15%, 25%);
+  background-color: white;
   padding: 10px;
   border: 2px solid black;
+}
+
+input {
+  width: 210px;
 }

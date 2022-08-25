@@ -42,6 +42,7 @@ function App() {
   return (
     <>
       <Header getDrinksByIngredient={getDrinksByIngredient}></Header>
+      <div className="blocker"></div>
       <div className="App">
         {drinks.map((drink, index) => {
           return <Drink drink={drink}></Drink>;

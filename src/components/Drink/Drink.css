@@ -33,17 +33,3 @@ div.drinkCard h2 {
 div.drinkCard:hover h2 {
   color: #ed820e;
 }
-
-div.drinkCard ol {
-  grid-area: extra;
-}
-
-ol.ingList {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-}
-
-li.ing {
-  margin: 1em;
-}

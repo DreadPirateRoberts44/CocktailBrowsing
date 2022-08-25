@@ -25,7 +25,7 @@ function Drink(props) {
         <Button
           handleClick={handleClick}
           prompt={"See Ingredients"}
-          className={"front"}
+          cName={"front"}
         ></Button>
       </div>
       <div className={"drinkCard"}>
