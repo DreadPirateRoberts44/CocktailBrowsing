@@ -7,7 +7,7 @@ function Header(props) {
   };
 
   const handleInputChange = (event) => {
-    const ingredients = event.target.value.split(",").map((t) => t.trim())
+    const ingredients = event.target.value.split(",").map((t) => t.trim());
     props.filterDrinksByIngredients(ingredients);
   };
 
@@ -17,7 +17,6 @@ function Header(props) {
         <span className="liquor">
           <label>Liquor: </label>
           <select name="Liquor" onChange={handleSelectChange}>
-            <option value="none"></option>
             <option value="Whiskey">Whiskey</option>
             <option value="Vodka">Vodka</option>
             <option value="Tequila">Tequila</option>
@@ -34,8 +33,8 @@ function Header(props) {
             id="otherIng"
             name="Other Ingredients"
             onChange={handleInputChange}
-            placeholder="Enter comma seperated ingredients">
-          </input>
+            placeholder="Enter comma seperated ingredients"
+          ></input>
         </span>
       </div>
     </div>
