@@ -7,6 +7,12 @@ function shuffle(array) {
   array.sort(() => Math.random() - 0.5);
 }
 
+function caseInsensitiveIncludes(array, element) {
+  return array.some(e => {
+    return e.toLowerCase() === element.toLowerCase();
+  });
+}
+
 function App() {
   const [drinks, setDrinks] = useState([]);
   const [displayDrinks, setDisplayDrinks] = useState([]);
@@ -18,8 +24,8 @@ function App() {
     );
     const data = await res.json();
 
-    function createDrink(result) {
-      result.forEach(async (d) => {
+    function setDrinksFromList(l) {
+      l.forEach(async (d) => {
         const res = await fetch(
           `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${d.idDrink}`
         );
@@ -40,15 +46,16 @@ function App() {
         }
 
         setDrinks((drinks) => [...drinks, drink]);
+        setDisplayDrinks((drinks) => [...drinks, drink]);
       });
     }
-    shuffle(data.drinks);
-    createDrink(data.drinks);
-    setDisplayDrinks((p) => drinks)
+
+    // shuffle(data.drinks);
+    setDrinksFromList(data.drinks);
   };
 
   const filterDrinksByIngredients = (ingredients) => {
-    if (ingredients.length === 0) {
+    if (ingredients[0] === "") {
       console.log("reset!")
       setDisplayDrinks((p) => drinks);
       return
@@ -57,7 +64,7 @@ function App() {
     var newDrinks = drinks
 
     ingredients.forEach((i) => {
-      newDrinks = newDrinks.filter((d) => d.ingredients.includes(i));
+      newDrinks = newDrinks.filter((d) => caseInsensitiveIncludes(d.ingredients, i));
     });
 
     if (newDrinks.length !== 0) {
