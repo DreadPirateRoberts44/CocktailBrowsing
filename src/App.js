@@ -19,6 +19,8 @@ function App() {
 
   const getDrinksByIngredient = async (ingredient) => {
     setDrinks([]);
+    setDisplayDrinks([]);
+
     const res = await fetch(
       "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" + ingredient
     );
