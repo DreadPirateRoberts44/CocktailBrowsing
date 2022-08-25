@@ -2,16 +2,22 @@ import React from "react";
 import "./Header.css";
 
 function Header(props) {
-  const handleChange = (event) => {
+  const handleSelectChange = (event) => {
     props.getDrinksByIngredient(event.target.value);
+  };
+
+  const handleInputChange = (event) => {
+    const ingredients = event.target.value.split(",").map((t) => t.trim())
+    props.filterDrinksByIngredients(ingredients);
   };
 
   return (
     <div className="header">
       <div className="input-container">
-        <span className="liqour">
-          <label>Liqour: </label>
-          <select name="Liquor" onChange={handleChange}>
+        <span className="liquor">
+          <label>Liquor: </label>
+          <select name="Liquor" onChange={handleSelectChange}>
+            <option value="none"></option>
             <option value="Whiskey">Whiskey</option>
             <option value="Vodka">Vodka</option>
             <option value="Tequila">Tequila</option>
@@ -22,13 +28,14 @@ function Header(props) {
           </select>
         </span>
         <span className="other">
-          <label>Other Ingredients: </label>
+          <label>Other Ingredients</label>
           <input
             type="text"
             id="otherIng"
             name="Other Ingredients"
-            placeholder="Enter space seperated ingredients"
-          ></input>
+            onChange={handleInputChange}
+            placeholder="Enter comma seperated ingredients">
+          </input>
         </span>
       </div>
     </div>

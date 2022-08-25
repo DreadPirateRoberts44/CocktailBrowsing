@@ -1,10 +1,7 @@
 div.header {
   background: linear-gradient(#160b20, #663399);
   height: 75px;
-  position: fixed;
-  top: 0;
   width: 100%;
-  z-index: 1;
 }
 
 div.input-container {
