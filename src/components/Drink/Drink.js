@@ -5,18 +5,11 @@ import "./Drink.css";
 
 function Drink(props) {
   const [flipped, setFlipped] = useState(false);
-  var ingredients = [];
 
-  for (var i = 0; i < 16; i++) {
-    const ing = props.drink["strIngredient" + i];
-    const measure = props.drink["strMeasure" + i];
-
-    if (ing != null && measure != null)
-      ingredients.push({ i: ing, m: measure });
-  }
   const handleClick = () => {
     setFlipped(!flipped);
   };
+  
   return (
     <ReactCardFlip isFlipped={flipped} flipDirection="horizontal">
       <div className={"drinkCard "}>
@@ -30,9 +23,9 @@ function Drink(props) {
       </div>
       <div className={"drinkCard"}>
         <ol className="ingList">
-          {ingredients.map((p) => (
+          {props.drink.ingredients.map((p) => (
             <li className="ing">
-              {p.m} {p.i}
+              {p}
             </li>
           ))}
         </ol>
